@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Learning Studio Navigation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass-card {
+                @apply bg-white/10 backdrop-blur-lg border border-white/20 shadow-xl;
+            }
+            .text-gradient {
+                @apply bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500;
+            }
+        }
+        body {
+            background-color: #0f172a;
+            color: white;
+        }
+    </style>
+</head>
+<body class="min-h-screen relative overflow-x-hidden selection:bg-purple-500 selection:text-white">
+
+    <!-- Animated Background Blobs -->
+    <div class="fixed inset-0 w-full h-full max-w-7xl mx-auto pointer-events-none z-0">
+        <div class="absolute top-0 -left-4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+        <div class="absolute top-0 -right-4 w-72 h-72 bg-yellow-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Header -->
+        <header class="text-center mb-16 opacity-0 animate-fade-in" style="animation-delay: 0.1s;">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 tracking-tight">
+                Learning <span class="text-gradient">AI Studio</span>
+            </h1>
+            <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto font-light">
+                探索交互式学习体验，融合 AI 辅助教学的前沿 Web 项目集合。
+            </p>
+        </header>
+
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- LaTeX -->
+            <a href="/learning-latex/" class="group relative block opacity-0 animate-fade-in" style="animation-delay: 0.2s;">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                <div class="relative glass-card rounded-2xl p-6 h-full hover:-translate-y-1 transition duration-300">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-4xl">∑</span>
+                        <span class="px-3 py-1 text-xs font-semibold text-pink-300 bg-pink-500/20 rounded-full">Math</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-pink-400 transition">LaTeX 公式大课</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">交互式 LaTeX 数学公式教程，实时预览与 AI 辅助，让公式编写不再困难。</p>
+                </div>
+            </a>
+
+            <!-- Mermaid -->
+            <a href="/learning-mermaid/" class="group relative block opacity-0 animate-fade-in" style="animation-delay: 0.3s;">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                <div class="relative glass-card rounded-2xl p-6 h-full hover:-translate-y-1 transition duration-300">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-4xl">🧜‍♀️</span>
+                        <span class="px-3 py-1 text-xs font-semibold text-cyan-300 bg-cyan-500/20 rounded-full">Diagrams</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-cyan-400 transition">Mermaid Masterclass</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">从入门到精通的 Mermaid.js 图表绘制交互式教程，配备 AI 导师。</p>
+                </div>
+            </a>
+
+            <!-- Tailwind -->
+            <a href="/learning-tailwind/" class="group relative block opacity-0 animate-fade-in" style="animation-delay: 0.4s;">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                <div class="relative glass-card rounded-2xl p-6 h-full hover:-translate-y-1 transition duration-300">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-4xl">🎨</span>
+                        <span class="px-3 py-1 text-xs font-semibold text-teal-300 bg-teal-500/20 rounded-full">CSS</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-teal-400 transition">Tailwind Master</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">包含实时演练场、速查表和 AI 智能辅导的 Tailwind CSS 深度学习平台。</p>
+                </div>
+            </a>
+
+             <!-- Periodic Table -->
+             <a href="/learning-periodic-table/" class="group relative block opacity-0 animate-fade-in" style="animation-delay: 0.5s;">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-green-500 to-lime-500 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                <div class="relative glass-card rounded-2xl p-6 h-full hover:-translate-y-1 transition duration-300">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-4xl">🧪</span>
+                        <span class="px-3 py-1 text-xs font-semibold text-green-300 bg-green-500/20 rounded-full">Science</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-green-400 transition">AI 元素周期表</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">现代化的互动式化学元素周期表，集成 AI 提供深入元素知识与历史趣闻。</p>
+                </div>
+            </a>
+
+            <!-- Conic View -->
+            <a href="/conic-view/" class="group relative block opacity-0 animate-fade-in" style="animation-delay: 0.6s;">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                <div class="relative glass-card rounded-2xl p-6 h-full hover:-translate-y-1 transition duration-300">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-4xl">📐</span>
+                        <span class="px-3 py-1 text-xs font-semibold text-orange-300 bg-orange-500/20 rounded-full">3D Math</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-orange-400 transition">Conic Visualizer</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">圆锥曲线 3D 可视化工具，直观演示截面形成原理，AI 辅助数学讲解。</p>
+                </div>
+            </a>
+
+            <!-- Markdown -->
+            <a href="/learning-markdown/" class="group relative block opacity-0 animate-fade-in" style="animation-delay: 0.7s;">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-gray-600 to-gray-400 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                <div class="relative glass-card rounded-2xl p-6 h-full hover:-translate-y-1 transition duration-300">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-4xl">📝</span>
+                        <span class="px-3 py-1 text-xs font-semibold text-gray-300 bg-gray-500/20 rounded-full">Docs</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-gray-400 transition">Markdown Master</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">实时预览与 AI 辅导的 Markdown 学习平台，助你快速掌握文档编写。</p>
+                </div>
+            </a>
+
+            <!-- Typography -->
+            <a href="/learning-typo/" class="group relative block opacity-0 animate-fade-in" style="animation-delay: 0.8s;">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                <div class="relative glass-card rounded-2xl p-6 h-full hover:-translate-y-1 transition duration-300">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-4xl">Aa</span>
+                        <span class="px-3 py-1 text-xs font-semibold text-indigo-300 bg-indigo-500/20 rounded-full">Design</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-indigo-400 transition">TypoLab Academy</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">Web 排版结构化交互课程，提供实时 AI 反馈和评分机制。</p>
+                </div>
+            </a>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-20 text-center text-slate-500 text-sm opacity-0 animate-fade-in" style="animation-delay: 1s;">
+            <p>&copy; 2025 Benzfy. All rights reserved. <a href="https://github.com/benzfy" class="hover:text-white transition">GitHub</a></p>
+        </footer>
+    </div>
+
+</body>
+</html>
+
